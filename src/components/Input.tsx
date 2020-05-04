@@ -7,7 +7,7 @@ import styled from "styled-components";
 import { langData } from "../context/languageData";
 import { LangContext } from "../context/LangContext";
 
-type NoteObject = { id: number; title: string };
+type NoteObject = { id: number; title: string; body: string; userId: number };
 interface InputProps {
   createNote: (note: NoteObject) => void;
 }
@@ -22,31 +22,31 @@ const InputWrap = styled(Card)`
   height: "100%";
 `;
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     "& .MuiTextField-root": {
       margin: theme.spacing(1),
-      width: "100%"
-    }
+      width: "100%",
+    },
   },
   numberInput: {
     "& .MuiInputBase-input": {
       textAlign: "center",
-      width: "10vw"
+      width: "10vw",
     },
     "& .MuiInputBase-root": {
-      width: "10vw"
-    }
+      width: "10vw",
+    },
   },
   textInput: {
     "& .MuiInputBase-input": {
       width: "100%",
-      textAlign: "center"
+      textAlign: "center",
     },
     "& .MuiInputBase-root": {
-      width: "100%"
-    }
-  }
+      width: "100%",
+    },
+  },
 }));
 
 const Input: React.FunctionComponent<InputProps> = ({ createNote }) => {
@@ -62,17 +62,32 @@ const Input: React.FunctionComponent<InputProps> = ({ createNote }) => {
   const [noteContent, setNoteContent] = React.useState(
     langData[contextValue].defaultText
   );
+  const [noteTitle, setNoteTitle] = React.useState("");
+  const [userId, setUserId] = React.useState(getRandomInt(1, 9999));
 
   const handleIdChange = (event: any) => {
     setNoteId(event.target.value);
   };
 
-  const handleChange = (event: any) => {
+  const handleUserIdChange = (event: any) => {
+    setUserId(event.target.value);
+  };
+
+  const handleNoteContentChange = (event: any) => {
     setNoteContent(event.target.value);
   };
 
+  const handleChange = (event: any) => {
+    setNoteTitle(event.target.value);
+  };
+
   const addNote = () => {
-    createNote({ id: noteId, title: noteContent });
+    createNote({
+      id: noteId,
+      title: noteTitle,
+      body: noteContent,
+      userId: userId,
+    });
   };
 
   return (
@@ -82,8 +97,8 @@ const Input: React.FunctionComponent<InputProps> = ({ createNote }) => {
           className={classes.textInput}
           id="noteContent"
           label={langData[contextValue].postLabel}
-          value={noteContent}
-          onChange={e => handleChange(e)}
+          value={noteTitle}
+          onChange={(e) => handleChange(e)}
           variant="outlined"
         />
         <TextField
@@ -92,6 +107,22 @@ const Input: React.FunctionComponent<InputProps> = ({ createNote }) => {
           label="Id"
           value={noteId}
           onChange={handleIdChange}
+          variant="outlined"
+        />{" "}
+        <TextField
+          className={classes.numberInput}
+          id="userId"
+          label="userId"
+          value={userId}
+          onChange={handleUserIdChange}
+          variant="outlined"
+        />{" "}
+        <TextField
+          className={classes.textInput}
+          id="noteContent"
+          label="noteContent"
+          value={noteContent}
+          onChange={handleNoteContentChange}
           variant="outlined"
         />
         <Button variant="contained" color="primary" onClick={addNote}>

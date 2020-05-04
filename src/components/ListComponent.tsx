@@ -4,16 +4,16 @@ import { connect } from "react-redux";
 import {
   getPickedNote,
   editPickedNote,
-  deleteNoteById
+  deleteNoteById,
 } from "../store/actions/notes";
 import { State } from "../store/reducers";
 import ListUnit from "./ListUnit";
 import List from "@material-ui/core/List";
 import styled from "styled-components";
 
-type NoteObject = { id: number; title: string; body: string; userId: number};
+type NoteObject = { id: number; title: string; body: string; userId: number };
 interface ListProps {
-  notes: { id: number; title: string; body: string; userId: number}[];
+  notes: { id: number; title: string; body: string; userId: number }[];
 }
 interface DispatchProps {
   getPickedNote: (id: number) => any;
@@ -26,8 +26,9 @@ const CustomList = styled(List)`
   width: 100%;
 `;
 
-const ListComponent: React.FunctionComponent<ListProps &
-  DispatchProps> = props => {
+const ListComponent: React.FunctionComponent<ListProps & DispatchProps> = (
+  props
+) => {
   const pickNote = (id: number) => {
     props.getPickedNote(id);
   };
@@ -43,7 +44,7 @@ const ListComponent: React.FunctionComponent<ListProps &
     <CustomList>
       {props.notes &&
         props.notes.length > 1 &&
-        props.notes.map(note => {
+        props.notes.map((note) => {
           return (
             <ListUnit
               key={note.id}
@@ -59,13 +60,13 @@ const ListComponent: React.FunctionComponent<ListProps &
 };
 
 const mapStateToProps = (state: State) => ({
-  notes: state.notes.notesArray
+  notes: state.notes.notesArray,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
   getPickedNote: (id: number) => dispatch(getPickedNote(id)),
   editPickedNote: (note: NoteObject) => dispatch(editPickedNote(note)),
-  deleteNoteById: (id: number) => dispatch(deleteNoteById(id))
+  deleteNoteById: (id: number) => dispatch(deleteNoteById(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListComponent);

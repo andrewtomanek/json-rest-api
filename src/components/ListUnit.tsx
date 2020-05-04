@@ -7,7 +7,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import ListItem from "@material-ui/core/ListItem";
 import styled from "styled-components";
 
-type NoteObject = { id: number; title: string; body: string; userId: number};
+type NoteObject = { id: number; title: string; body: string; userId: number };
 interface UnitProps {
   note: NoteObject;
   pickNote: (id: number) => any;
@@ -26,24 +26,24 @@ const ListUnit: React.FunctionComponent<UnitProps> = ({
   note,
   pickNote,
   editNote,
-  deletePickedNote
+  deletePickedNote,
 }) => {
   const useStyles = makeStyles(() => ({
     root: {
       display: "flex",
       flexFlow: "row wrap",
       width: "90%",
-      padding: "1rem"
+      padding: "1rem",
     },
     listBox: {
       display: "flex",
       flexFlow: "row wrap",
       backgroundColor: "var(--blue)",
-      color: "white"
+      color: "white",
     },
     listText: {
-      padding: "0rem 1rem"
-    }
+      padding: "0rem 1rem",
+    },
   }));
   const classes = useStyles();
 

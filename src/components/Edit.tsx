@@ -8,7 +8,7 @@ import styled from "styled-components";
 import { langData } from "../context/languageData";
 import { LangContext } from "../context/LangContext";
 
-type NoteObject = { id: number; title: string; body: string; userId: number};
+type NoteObject = { id: number; title: string; body: string; userId: number };
 interface EditProps {
   note: NoteObject;
   editNote: (note: NoteObject) => void;
@@ -34,38 +34,42 @@ const ButtonPanel = styled(Card)`
   width: 90%;
 `;
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     "& .MuiTextField-root": {
       width: "100%",
-      height: "90%"
-    }
+      height: "90%",
+    },
   },
   textInput: {
     margin: theme.spacing(1),
     width: "90%",
-    height: "80%"
-  }
+    height: "80%",
+  },
 }));
 
 const Edit: React.FunctionComponent<EditProps> = ({
   note,
   editNote,
-  deletePickedNote
+  deletePickedNote,
 }) => {
   const contextValue = React.useContext(LangContext);
   const classes = useStyles();
   const [noteTitle, setNoteTitle] = React.useState(note.title);
- /*  const [noteContent, setNoteContent] = React.useState(note.body);
+  /*  const [noteContent, setNoteContent] = React.useState(note.body);
   const [userId, setUserId] = React.useState(note.userId); */
-
 
   const handleChange = (event: any) => {
     setNoteTitle(event.target.value);
   };
 
   const pickNote = (note: NoteObject) => {
-    editNote({ id: note.id, title: noteTitle, body: note.body, userId: note.userId});
+    editNote({
+      id: note.id,
+      title: noteTitle,
+      body: note.body,
+      userId: note.userId,
+    });
   };
 
   return (
@@ -75,7 +79,7 @@ const Edit: React.FunctionComponent<EditProps> = ({
           className={classes.textInput}
           label={langData[contextValue].postLabel}
           value={noteTitle}
-          onChange={e => handleChange(e)}
+          onChange={(e) => handleChange(e)}
           id="outlined-multiline-static"
           multiline
           rows="8"
