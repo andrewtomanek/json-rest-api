@@ -9,13 +9,14 @@ interface IdRequest {
 
 type RequestId = number;
 
-const BASE_URL = "https://private-anon-1248a7e5c8-note10.apiary-mock.com";
+const BASE_URL = "https://jsonplaceholder.typicode.com";
 
 export const getAllNotes = async () => {
-  const API_ENDPOINT = BASE_URL + `/notes`;
+  const API_ENDPOINT = BASE_URL + `/posts`;
 
   try {
     let response = await fetch(API_ENDPOINT);
+    console.log(response)
     return await response.json();
   } catch (err) {
     throw err;
@@ -24,7 +25,7 @@ export const getAllNotes = async () => {
 
 export const retrieveNote = async (request: IdRequest) => {
   const noteId = request.payload;
-  const API_ENDPOINT = BASE_URL + `/notes/${noteId}`;
+  const API_ENDPOINT = BASE_URL + `/posts/${noteId}`;
   const parameters = {
     method: "GET"
   };
@@ -38,11 +39,11 @@ export const retrieveNote = async (request: IdRequest) => {
 };
 
 export const uploadNote = async (request: NoteRequest) => {
-  const API_ENDPOINT = BASE_URL + `/notes`;
+  const API_ENDPOINT = BASE_URL + `/posts`;
   const parameters = {
     method: "POST",
     headers: {
-      "Content-Type": "application/json"
+      "Content-type": "application/json; charset=UTF-8"
     },
     body: JSON.stringify(request.payload)
   };
@@ -57,13 +58,13 @@ export const uploadNote = async (request: NoteRequest) => {
 
 export const updateNote = async (request: NoteRequest) => {
   const noteId: RequestId = request.payload.id;
-  const API_ENDPOINT = BASE_URL + `/notes/${noteId}`;
+  const API_ENDPOINT = BASE_URL + `/posts/${noteId}`;
   const parameters = {
     method: "PUT",
     headers: {
-      "Content-Type": "application/json"
+      "Content-type": "application/json; charset=UTF-8"
     },
-    body: JSON.stringify(request.payload.title)
+    body: JSON.stringify(request.payload)
   };
 
   try {
@@ -76,7 +77,7 @@ export const updateNote = async (request: NoteRequest) => {
 
 export const deleteNote = async (request: IdRequest) => {
   const noteId = request.payload;
-  const API_ENDPOINT = BASE_URL + `/notes/${noteId}`;
+  const API_ENDPOINT = BASE_URL + `/posts/${noteId}`;
   const parameters = {
     method: "DELETE"
   };

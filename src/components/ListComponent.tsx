@@ -11,9 +11,9 @@ import ListUnit from "./ListUnit";
 import List from "@material-ui/core/List";
 import styled from "styled-components";
 
-type NoteObject = { id: number; title: string };
+type NoteObject = { id: number; title: string; body: string; userId: number};
 interface ListProps {
-  notes: { id: number; title: string }[];
+  notes: { id: number; title: string; body: string; userId: number}[];
 }
 interface DispatchProps {
   getPickedNote: (id: number) => any;

@@ -8,7 +8,7 @@ import styled from "styled-components";
 import { langData } from "../context/languageData";
 import { LangContext } from "../context/LangContext";
 
-type NoteObject = { id: number; title: string };
+type NoteObject = { id: number; title: string; body: string; userId: number};
 interface EditProps {
   note: NoteObject;
   editNote: (note: NoteObject) => void;
@@ -55,14 +55,17 @@ const Edit: React.FunctionComponent<EditProps> = ({
 }) => {
   const contextValue = React.useContext(LangContext);
   const classes = useStyles();
-  const [noteContent, setNoteContent] = React.useState(note.title);
+  const [noteTitle, setNoteTitle] = React.useState(note.title);
+ /*  const [noteContent, setNoteContent] = React.useState(note.body);
+  const [userId, setUserId] = React.useState(note.userId); */
+
 
   const handleChange = (event: any) => {
-    setNoteContent(event.target.value);
+    setNoteTitle(event.target.value);
   };
 
   const pickNote = (note: NoteObject) => {
-    editNote({ id: note.id, title: noteContent });
+    editNote({ id: note.id, title: noteTitle, body: note.body, userId: note.userId});
   };
 
   return (
@@ -71,7 +74,7 @@ const Edit: React.FunctionComponent<EditProps> = ({
         <TextField
           className={classes.textInput}
           label={langData[contextValue].postLabel}
-          value={noteContent}
+          value={noteTitle}
           onChange={e => handleChange(e)}
           id="outlined-multiline-static"
           multiline
