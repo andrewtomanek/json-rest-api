@@ -16,7 +16,6 @@ export const getAllNotes = async () => {
 
   try {
     let response = await fetch(API_ENDPOINT);
-    console.log(response)
     return await response.json();
   } catch (err) {
     throw err;
@@ -27,7 +26,7 @@ export const retrieveNote = async (request: IdRequest) => {
   const noteId = request.payload;
   const API_ENDPOINT = BASE_URL + `/posts/${noteId}`;
   const parameters = {
-    method: "GET"
+    method: "GET",
   };
 
   try {
@@ -43,9 +42,9 @@ export const uploadNote = async (request: NoteRequest) => {
   const parameters = {
     method: "POST",
     headers: {
-      "Content-type": "application/json; charset=UTF-8"
+      "Content-type": "application/json; charset=UTF-8",
     },
-    body: JSON.stringify(request.payload)
+    body: JSON.stringify(request.payload),
   };
 
   try {
@@ -62,9 +61,9 @@ export const updateNote = async (request: NoteRequest) => {
   const parameters = {
     method: "PUT",
     headers: {
-      "Content-type": "application/json; charset=UTF-8"
+      "Content-type": "application/json; charset=UTF-8",
     },
-    body: JSON.stringify(request.payload)
+    body: JSON.stringify(request.payload),
   };
 
   try {
@@ -79,7 +78,7 @@ export const deleteNote = async (request: IdRequest) => {
   const noteId = request.payload;
   const API_ENDPOINT = BASE_URL + `/posts/${noteId}`;
   const parameters = {
-    method: "DELETE"
+    method: "DELETE",
   };
 
   try {

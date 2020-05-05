@@ -13,13 +13,19 @@ interface InputProps {
 }
 
 const InputWrap = styled(Card)`
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: space-around;
+  display: grid;
+  grid-gap: 1rem;
+  grid-auto-flow: row;
+  justify-content: stretch;
   padding: 1rem;
   margin: auto;
-  width: 90%;
-  height: "100%";
+`;
+
+const IdWrap = styled.div`
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: space-between;
+  padding: 0.1rem 1rem;
 `;
 
 const useStyles = makeStyles((theme) => ({
@@ -102,29 +108,31 @@ const Input: React.FunctionComponent<InputProps> = ({ createNote }) => {
           variant="outlined"
         />
         <TextField
-          className={classes.numberInput}
-          id="Id"
-          label="Id"
-          value={noteId}
-          onChange={handleIdChange}
-          variant="outlined"
-        />{" "}
-        <TextField
-          className={classes.numberInput}
-          id="userId"
-          label="userId"
-          value={userId}
-          onChange={handleUserIdChange}
-          variant="outlined"
-        />{" "}
-        <TextField
           className={classes.textInput}
           id="noteContent"
-          label="noteContent"
+          label={langData[contextValue].postContent}
           value={noteContent}
           onChange={handleNoteContentChange}
           variant="outlined"
         />
+        <IdWrap>
+          <TextField
+            className={classes.numberInput}
+            id="Id"
+            label="Id"
+            value={noteId}
+            onChange={handleIdChange}
+            variant="outlined"
+          />
+          <TextField
+            className={classes.numberInput}
+            id="userId"
+            label="userId"
+            value={userId}
+            onChange={handleUserIdChange}
+            variant="outlined"
+          />
+        </IdWrap>
         <Button variant="contained" color="primary" onClick={addNote}>
           {langData[contextValue].postButton}
         </Button>

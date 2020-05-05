@@ -5,6 +5,11 @@ const GlobalStyle = createGlobalStyle`
   --red: hsla(0, 40%, 40%, 1);
   --grey: hsla(360, 0%, 80%, 1);
   font-size: calc(1vw + 1vh + 0.5vmin);
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 html {

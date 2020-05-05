@@ -1,5 +1,4 @@
 import * as React from "react";
-import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
@@ -21,17 +20,13 @@ const InputWrap = styled(Card)`
   justify-content: flex-start;
   padding: 1rem;
   margin: auto;
-  width: 90%;
-  height: 90%;
 `;
 
-const ButtonPanel = styled(Card)`
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
-  padding: 1rem;
-  margin: auto;
-  width: 90%;
+const IdWrap = styled.div`
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: space-between;
+  padding: 0.1rem 1rem;
 `;
 
 const useStyles = makeStyles((theme) => ({
@@ -40,11 +35,24 @@ const useStyles = makeStyles((theme) => ({
       width: "100%",
       height: "90%",
     },
+    "& .MuiPaper-elevation1"
+    : {
+      boxShadow: "none"
+    },
   },
   textInput: {
     margin: theme.spacing(1),
     width: "90%",
     height: "80%",
+  }, 
+  numberInput: {
+    "& .MuiInputBase-input": {
+      textAlign: "center",
+      width: "10vw",
+    },
+    "& .MuiInputBase-root": {
+      width: "10vw",
+    },
   },
 }));
 
@@ -55,20 +63,33 @@ const Edit: React.FunctionComponent<EditProps> = ({
 }) => {
   const contextValue = React.useContext(LangContext);
   const classes = useStyles();
+  const [noteId, setNoteId] = React.useState(note.id);
   const [noteTitle, setNoteTitle] = React.useState(note.title);
-  /*  const [noteContent, setNoteContent] = React.useState(note.body);
-  const [userId, setUserId] = React.useState(note.userId); */
+  const [noteContent, setNoteContent] = React.useState(note.body);
+  const [userId, setUserId] = React.useState(note.userId);
+
+  const handleIdChange = (event: any) => {
+    setNoteId(event.target.value);
+  };
 
   const handleChange = (event: any) => {
     setNoteTitle(event.target.value);
   };
 
-  const pickNote = (note: NoteObject) => {
+  const handleNoteContentChange = (event: any) => {
+    setNoteContent(event.target.value);
+  };
+
+  const handleUserIdChange = (event: any) => {
+    setUserId(event.target.value);
+  };
+
+  const pickNote = () => {
     editNote({
-      id: note.id,
+      id: noteId,
       title: noteTitle,
-      body: note.body,
-      userId: note.userId,
+      body: noteContent,
+      userId: userId,
     });
   };
 
@@ -80,31 +101,51 @@ const Edit: React.FunctionComponent<EditProps> = ({
           label={langData[contextValue].postLabel}
           value={noteTitle}
           onChange={(e) => handleChange(e)}
-          id="outlined-multiline-static"
+          id="noteId"
+                    variant="outlined"
+        />
+        <TextField
+          className={classes.textInput}
+          id="noteContent"
+          label={langData[contextValue].postContent}
+          value={noteContent}
+          onChange={handleNoteContentChange}
           multiline
-          rows="8"
+          rows="6"
           variant="outlined"
         />
-        <ButtonPanel>
+        <IdWrap>
+          <TextField
+            className={classes.numberInput}
+            id="Id"
+            label="Id"
+            value={noteId}
+            onChange={handleIdChange}
+            variant="outlined"
+          />
           <Button
             variant="contained"
             color="secondary"
-            onClick={() => pickNote(note)}
+            onClick={() => pickNote()}
           >
             {langData[contextValue].editButton}
           </Button>
-          <Typography variant="h6" gutterBottom>
-            Id:
-            {note.id}
-          </Typography>
-          <Button
+                <Button
             variant="contained"
             color="secondary"
             onClick={() => deletePickedNote(note.id)}
           >
             {langData[contextValue].deleteButton}
           </Button>
-        </ButtonPanel>
+          <TextField
+            className={classes.numberInput}
+            id="userId"
+            label="userId"
+            value={userId}
+            onChange={handleUserIdChange}
+            variant="outlined"
+          />
+        </IdWrap>
       </InputWrap>
     </form>
   );

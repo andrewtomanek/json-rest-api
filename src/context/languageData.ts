@@ -3,6 +3,7 @@ export interface LanguageStrings {
   createHeader: string;
   defaultText: string;
   postLabel: string;
+  postContent: string;
   homeButton: string;
   createRoute: string;
   postButton: string;
@@ -19,7 +20,8 @@ export const langData: {
     header: "Poznámky",
     createHeader: "Vytvořit novou poznámku",
     defaultText: "Nákup",
-    postLabel: "Text poznámky",
+    postLabel: "Titul poznámky",
+    postContent: "Text poznámky",
     homeButton: "Domů",
     createRoute: "Vytvořit",
     postButton: "Odeslat",
@@ -32,7 +34,8 @@ export const langData: {
     header: "Notes",
     createHeader: "Create new note",
     defaultText: "Go shopping",
-    postLabel: "Note content",
+    postLabel: "Note title",
+    postContent: "Note content",
     homeButton: "Home",
     createRoute: "Create",
     postButton: "Post",
@@ -46,6 +49,7 @@ export const langData: {
     createHeader: "творить заметки",
     defaultText: "магазин ",
     postLabel: "заметки Суть",
+    postContent: "заметки Суть",
     homeButton: "дома ",
     createRoute: "творить",
     postButton: "послать",
