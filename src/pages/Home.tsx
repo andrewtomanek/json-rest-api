@@ -17,8 +17,6 @@ interface DispatchProps {
 }
 
 const Wrapper = styled(Card)`
-  padding: 1rem;
-  margin: auto;
   width: 100%;
 `;
 

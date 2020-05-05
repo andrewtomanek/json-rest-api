@@ -22,7 +22,6 @@ interface DispatchProps {
 }
 
 const CustomList = styled(List)`
-  padding: 1rem;
   width: 100%;
 `;
 

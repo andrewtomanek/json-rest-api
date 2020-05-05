@@ -32,13 +32,12 @@ const ListUnit: React.FunctionComponent<UnitProps> = ({
     root: {
       display: "flex",
       flexFlow: "row wrap",
-      width: "90%",
       padding: "1rem",
     },
     listBox: {
       display: "flex",
       flexFlow: "row wrap",
-      backgroundColor: "var(--blue)",
+      backgroundColor: "var(--azure)",
       color: "white",
     },
     listText: {

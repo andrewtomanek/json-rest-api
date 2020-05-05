@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
   },
   numberInput: {
     "& .MuiInputBase-input": {
-      textAlign: "center",
+      textAlign: "left",
       width: "10vw",
     },
     "& .MuiInputBase-root": {
@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
   textInput: {
     "& .MuiInputBase-input": {
       width: "100%",
-      textAlign: "center",
+      textAlign: "left",
     },
     "& .MuiInputBase-root": {
       width: "100%",
@@ -101,7 +101,7 @@ const Input: React.FunctionComponent<InputProps> = ({ createNote }) => {
       <InputWrap>
         <TextField
           className={classes.textInput}
-          id="noteContent"
+          id="noteTitle"
           label={langData[contextValue].postLabel}
           value={noteTitle}
           onChange={(e) => handleChange(e)}
@@ -112,7 +112,9 @@ const Input: React.FunctionComponent<InputProps> = ({ createNote }) => {
           id="noteContent"
           label={langData[contextValue].postContent}
           value={noteContent}
-          onChange={handleNoteContentChange}
+          onChange={(e) =>handleNoteContentChange(e)}
+          multiline
+          rows="6"
           variant="outlined"
         />
         <IdWrap>
@@ -121,21 +123,21 @@ const Input: React.FunctionComponent<InputProps> = ({ createNote }) => {
             id="Id"
             label="Id"
             value={noteId}
-            onChange={handleIdChange}
+            onChange={(e) =>handleIdChange(e)}
             variant="outlined"
           />
+        <Button variant="contained" color="primary" onClick={addNote}>
+          {langData[contextValue].postButton}
+        </Button>
           <TextField
             className={classes.numberInput}
             id="userId"
             label="userId"
             value={userId}
-            onChange={handleUserIdChange}
+            onChange={(e) =>handleUserIdChange(e)}
             variant="outlined"
           />
         </IdWrap>
-        <Button variant="contained" color="primary" onClick={addNote}>
-          {langData[contextValue].postButton}
-        </Button>
       </InputWrap>
     </form>
   );
