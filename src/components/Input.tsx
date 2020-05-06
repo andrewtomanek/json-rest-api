@@ -6,8 +6,8 @@ import Card from "@material-ui/core/Card";
 import styled from "styled-components";
 import { langData } from "../context/languageData";
 import { LangContext } from "../context/LangContext";
+import { NoteObject } from "../store/reducers/types";
 
-type NoteObject = { id: number; title: string; body: string; userId: number };
 interface InputProps {
   createNote: (note: NoteObject) => void;
 }
@@ -65,9 +65,7 @@ const Input: React.FunctionComponent<InputProps> = ({ createNote }) => {
 
   const classes = useStyles();
   const [noteId, setNoteId] = React.useState(getRandomInt(1, 9999));
-  const [noteContent, setNoteContent] = React.useState(
-    langData[contextValue].defaultText
-  );
+  const [noteContent, setNoteContent] = React.useState("");
   const [noteTitle, setNoteTitle] = React.useState("");
   const [userId, setUserId] = React.useState(getRandomInt(1, 9999));
 
@@ -112,7 +110,7 @@ const Input: React.FunctionComponent<InputProps> = ({ createNote }) => {
           id="noteContent"
           label={langData[contextValue].postContent}
           value={noteContent}
-          onChange={(e) =>handleNoteContentChange(e)}
+          onChange={(e) => handleNoteContentChange(e)}
           multiline
           rows="6"
           variant="outlined"
@@ -123,18 +121,18 @@ const Input: React.FunctionComponent<InputProps> = ({ createNote }) => {
             id="Id"
             label="Id"
             value={noteId}
-            onChange={(e) =>handleIdChange(e)}
+            onChange={(e) => handleIdChange(e)}
             variant="outlined"
           />
-        <Button variant="contained" color="primary" onClick={addNote}>
-          {langData[contextValue].postButton}
-        </Button>
+          <Button variant="contained" color="primary" onClick={addNote}>
+            {langData[contextValue].postButton}
+          </Button>
           <TextField
             className={classes.numberInput}
             id="userId"
             label="userId"
             value={userId}
-            onChange={(e) =>handleUserIdChange(e)}
+            onChange={(e) => handleUserIdChange(e)}
             variant="outlined"
           />
         </IdWrap>

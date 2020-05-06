@@ -9,9 +9,9 @@ import {
 import { State } from "../store/reducers";
 import ListUnit from "./ListUnit";
 import List from "@material-ui/core/List";
+import { NoteObject } from "../store/reducers/types";
 import styled from "styled-components";
 
-type NoteObject = { id: number; title: string; body: string; userId: number };
 interface ListProps {
   notes: { id: number; title: string; body: string; userId: number }[];
 }

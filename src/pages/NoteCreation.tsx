@@ -11,9 +11,9 @@ import Box from "@material-ui/core/Box";
 import Card from "@material-ui/core/Card";
 import { makeStyles } from "@material-ui/core/styles";
 import { StylesProvider } from "@material-ui/styles";
+import { NoteObject } from "../store/reducers/types";
 import styled from "styled-components";
 
-type NoteObject = { id: number; title: string };
 interface DispatchProps {
   postNotes: (note: NoteObject) => any;
 }

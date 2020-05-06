@@ -5,9 +5,9 @@ import Edit from "../components/Edit";
 import Card from "@material-ui/core/Card";
 import { makeStyles } from "@material-ui/core/styles";
 import ListItem from "@material-ui/core/ListItem";
+import { NoteObject } from "../store/reducers/types";
 import styled from "styled-components";
 
-type NoteObject = { id: number; title: string; body: string; userId: number };
 interface UnitProps {
   note: NoteObject;
   pickNote: (id: number) => any;
