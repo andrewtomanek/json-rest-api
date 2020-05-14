@@ -1,6 +1,6 @@
 # react-sagas-typescript
 
-Pefrorm basic CRUD operations with React SPA
+Pefrorm basic CRUD operations with React SPA on jsonplaceholder API.
 
 ## Table of contents
 
@@ -12,7 +12,7 @@ Pefrorm basic CRUD operations with React SPA
 
 ## General info
 
-Fetch notes from API<br /> Create new notes and upload them to server<br /> Edit existing note<br /> Display detail of picked note<br /> Select preferred language.
+Fetch notes from jsonplaceholder API<br /> Create new notes and upload them to server<br /> Edit existing note<br /> Display detail of picked note<br /> Select preferred language.
 
 ## Technologies
 
@@ -48,7 +48,7 @@ Run yarn test or watch changes yarn watch
 
 andrewtomanek - andrewtomanek@gmail.com
 
-[https://github.com/andrewtomanek/react-sagas-typescript](https://github.com/andrewtomanek/react-sagas-typescript)
+[https://github.com/andrewtomanek/quiz-redux](https://github.com/andrewtomanek/quiz-redux)
 
 ## License
 
