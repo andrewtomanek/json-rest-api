@@ -8,7 +8,10 @@ import {
 } from "../store/actions/notes";
 import { State } from "../store/reducers";
 import ListUnit from "./ListUnit";
+import ListItem from "@material-ui/core/ListItem";
 import List from "@material-ui/core/List";
+import Typography from "@material-ui/core/Typography";
+
 import { NoteObject } from "../store/reducers/types";
 import styled from "styled-components";
 
@@ -41,8 +44,7 @@ const ListComponent: React.FunctionComponent<ListProps & DispatchProps> = (
   };
   return (
     <CustomList>
-      {props.notes &&
-        props.notes.length > 1 &&
+      {props.notes && props.notes.length > 1 ? (
         props.notes.map((note) => {
           return (
             <ListUnit
@@ -53,7 +55,12 @@ const ListComponent: React.FunctionComponent<ListProps & DispatchProps> = (
               deletePickedNote={deletePickedNote}
             />
           );
-        })}
+        })
+      ) : (
+        <ListItem>
+          <Typography variant="h4">loading...</Typography>
+        </ListItem>
+      )}
     </CustomList>
   );
 };
