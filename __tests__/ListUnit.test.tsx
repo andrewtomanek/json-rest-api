@@ -3,7 +3,7 @@ import { shallow } from "enzyme";
 import ListUnit from "../src/components/ListUnit";
 import Edit from "../src/components/Edit";
 
-const note = { id: 1, title: "test" };
+const note = { id: 1, title: "test", body: "text test", userId: 99 };
 const pickNote = jest.fn();
 const editNote = jest.fn();
 const deletePickedNote = jest.fn();

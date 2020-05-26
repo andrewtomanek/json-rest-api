@@ -3,7 +3,7 @@ import { shallow } from "enzyme";
 import Modal from "../src/components/Modal";
 import Edit from "../src/components/Edit";
 
-const note = { id: 1, title: "test" };
+const note = { id: 1, title: "test", body: "text test", userId: 99 };
 const noteId = 1;
 const pickNote = jest.fn();
 const editNote = jest.fn();
