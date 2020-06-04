@@ -22,13 +22,13 @@ const Wrap = styled(Card)`
   background-color: var(--blue);
 `;
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
     width: "10%",
-    backgroundColor: "var(--blue)"
+    backgroundColor: "var(--blue)",
     "@media (max-width: 780px)": {
-      width: "20%",
+      width: "25%",
     },
   },
   selectWrap: {
@@ -37,13 +37,13 @@ const useStyles = makeStyles(theme => ({
     textAlign: "center",
     color: "hsla(210, 100%, 30%, 1)",
     fontSize: "1rem",
-    padding: "0.1rem"
-  }
+    padding: "0.1rem",
+  },
 }));
 
 const LanguageSwitch: React.FunctionComponent<ModalProps> = ({
   language,
-  changeLanguage
+  changeLanguage,
 }) => {
   const classes = useStyles();
   const updateLanguage = (event: any) => {
@@ -61,7 +61,7 @@ const LanguageSwitch: React.FunctionComponent<ModalProps> = ({
             onChange={updateLanguage}
             inputProps={{
               name: "age",
-              id: "age-native-label-placeholder"
+              id: "age-native-label-placeholder",
             }}
           >
             <option value="cs-CZ">Česky</option>
