@@ -25,8 +25,9 @@ const InputWrap = styled(Card)`
 const IdWrap = styled.div`
   display: grid;
   grid-auto-flow: column;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 0.1rem 1rem;
+  width: 90%;
 `;
 
 const useStyles = makeStyles((theme) => ({

@@ -12,15 +12,15 @@ const useStyles = makeStyles({
     flexFlow: "row wrap",
     justifyContent: "space-evenly",
     backgroundColor: "hsla(0, 90%, 75%, 1)",
-    height: "10vh"
+    height: "10vh",
   },
   navText: {
     color: "white",
     fontWeight: 900,
     "& .MuiBottomNavigationAction-label": {
-      fontSize: "1.2rem"
-    }
-  }
+      fontSize: "1.2rem",
+    },
+  },
 });
 
 export default function Navigation() {
@@ -31,9 +31,8 @@ export default function Navigation() {
   return (
     <BottomNavigation
       value={value}
-      onChange={(event, newValue) => {
+      onChange={(_, newValue) => {
         setValue(newValue);
-        console.log(event, newValue);
         history.push(newValue);
       }}
       showLabels

@@ -27,6 +27,9 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(1),
     width: "10%",
     backgroundColor: "var(--blue)"
+    "@media (max-width: 780px)": {
+      width: "20%",
+    },
   },
   selectWrap: {
     margin: theme.spacing(1),
