@@ -32,7 +32,6 @@ const IdWrap = styled.div`
 const useStyles = makeStyles((theme) => ({
   root: {
     "& .MuiTextField-root": {
-      width: "100%",
       height: "90%",
     },
     "& .MuiPaper-elevation1": {
