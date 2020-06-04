@@ -35,16 +35,15 @@ const useStyles = makeStyles((theme) => ({
       width: "100%",
       height: "90%",
     },
-    "& .MuiPaper-elevation1"
-    : {
-      boxShadow: "none"
+    "& .MuiPaper-elevation1": {
+      boxShadow: "none",
     },
   },
   textInput: {
     margin: theme.spacing(1),
     width: "90%",
     height: "80%",
-  }, 
+  },
   numberInput: {
     "& .MuiInputBase-input": {
       textAlign: "center",
@@ -102,7 +101,7 @@ const Edit: React.FunctionComponent<EditProps> = ({
           value={noteTitle}
           onChange={(e) => handleChange(e)}
           id="noteId"
-                    variant="outlined"
+          variant="outlined"
         />
         <TextField
           className={classes.textInput}
@@ -130,7 +129,7 @@ const Edit: React.FunctionComponent<EditProps> = ({
           >
             {langData[contextValue].editButton}
           </Button>
-                <Button
+          <Button
             variant="contained"
             color="secondary"
             onClick={() => deletePickedNote(note.id)}

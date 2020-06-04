@@ -21,12 +21,12 @@ const ModalWrap = styled(Card)`
   width: 100%;
 `;
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   modal: {
     width: "100%",
     display: "flex",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   paper: {
     backgroundColor: "hsla(210, 90%, 90%, 1)",
@@ -34,21 +34,25 @@ const useStyles = makeStyles(theme => ({
     boxShadow: theme.shadows[5],
     width: "60%",
     height: "60%",
-    padding: theme.spacing(2, 4, 3)
+    padding: theme.spacing(2, 4, 3),
+    "@media (max-width: 780px)": {
+      width: "90%",
+      height: "auto",
+    },
   },
   inputButton: {
     fontWeight: 500,
     "& .MuiButton-label": {
       fontSize: "1rem",
-      color: "hsla(210, 60%, 40%, 1)"
-    }
-  }
+      color: "hsla(210, 60%, 40%, 1)",
+    },
+  },
 }));
 
 const TransitionsModal: React.FunctionComponent<ModalProps> = ({
   pickNote,
   noteId,
-  children
+  children,
 }) => {
   const contextValue = React.useContext(LangContext);
   const classes = useStyles();
@@ -83,7 +87,7 @@ const TransitionsModal: React.FunctionComponent<ModalProps> = ({
         closeAfterTransition
         BackdropComponent={Backdrop}
         BackdropProps={{
-          timeout: 500
+          timeout: 500,
         }}
       >
         <Fade in={open}>
