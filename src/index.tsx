@@ -20,7 +20,7 @@ const render = () => {
         </AppContainer>
       </LangProvider>
     </>,
-    document.getElementById("app-root")
+    document.getElementById("root")
   );
 };
 
