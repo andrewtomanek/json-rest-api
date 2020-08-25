@@ -14,3 +14,6 @@ export const editPickedNote = (note: { id: number; title: string }) =>
 
 export const deleteNoteById = (id: number) =>
   action(NotesActionTypes.DELETE_NOTE, id);
+
+export const selectLanguage = (languageString: string) =>
+  action(NotesActionTypes.SELECT_LANGUAGE, languageString);

@@ -1,11 +1,11 @@
 import { Reducer } from "redux";
-import { NotesActionTypes } from './types'
+import { NotesActionTypes } from "./types";
 
-
-type defautState = { notesArray: [] };
+type defautState = { notesArray: []; selectedLanguage: string };
 
 const initialState: defautState = {
-  notesArray: []
+  notesArray: [],
+  selectedLanguage: "cs-CZ",
 };
 
 const notesReducer: Reducer = (state = initialState, action) => {
@@ -19,6 +19,8 @@ const notesReducer: Reducer = (state = initialState, action) => {
       return { ...state };
     case NotesActionTypes.DELETE_NOTE_SUCCESS:
       return { ...state };
+    case NotesActionTypes.SELECT_LANGUAGE:
+      return { ...state, selectedLanguage: response };
     default:
       return state;
   }
