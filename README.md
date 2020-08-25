@@ -33,16 +33,16 @@ Fetch notes from jsonplaceholder API<br /> Create new notes and upload them to s
 
 2. FTP/Copy the contents of the zip to your newly created folder
 
-3. Install dependencies: yarn 
+3. Install dependencies: yarn
 
 4. Start application: yarn start
 
-5. Visit http://localhost:9000/ in your browser
+5. Visit http://localhost:5000/ in your browser
    <br />
-      
+
 ## Testing
 
-Run yarn test or watch changes yarn watch 
+Run yarn test or watch changes yarn watch
 
 ## Contact
 

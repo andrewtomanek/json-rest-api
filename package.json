@@ -1,5 +1,5 @@
 {
-  "name": "react-sagas-typescript",
+  "name": "json-rest-api",
   "version": "1.0.0",
   "description": "React sagas Api using Connected React Router with TypeScript",
   "main": "src/index.tsx",
