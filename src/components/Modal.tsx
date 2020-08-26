@@ -43,7 +43,6 @@ const useStyles = makeStyles((theme) => ({
   inputButton: {
     fontWeight: 500,
     "& .MuiButton-label": {
-      fontSize: "1rem",
       color: "hsla(210, 60%, 40%, 1)",
     },
   },
@@ -73,7 +72,7 @@ const TransitionsModal: React.FunctionComponent<ModalProps> = ({
         className={classes.inputButton}
         variant="contained"
         size="large"
-        color="secondary"
+        color="primary"
         onClick={handleOpen}
       >
         {langData[contextValue].detailButton}

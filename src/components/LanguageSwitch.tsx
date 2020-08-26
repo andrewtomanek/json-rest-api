@@ -32,13 +32,13 @@ const LanguageSwitch: React.FunctionComponent<ModalProps> = ({
   changeLanguage,
 }) => {
   const classes = useStyles();
-  const updateLanguage = (event: any) => {
+  const updateLanguage = (event: React.ChangeEvent<HTMLSelectElement>) => {
     changeLanguage(event.target.value);
   };
 
   return (
     <StylesProvider injectFirst>
-      <FormControl variant="outlined" className={classes.formControl}>
+      <FormControl className={classes.formControl}>
         <NativeSelect
           className={classes.selectWrap}
           value={language}

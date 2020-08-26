@@ -24,8 +24,10 @@ const useStyles = makeStyles(() => ({
   headerText: {
     width: "100%",
     textAlign: "center",
-    color: "hsla(210, 90%, 30%, 1)"
-  }
+    color: "hsla(210, 90%, 30%, 1)",
+    fontSize: "1.7rem",
+    fontWeight: 700,
+  },
 }));
 
 const Home = (props: DispatchProps) => {
@@ -42,8 +44,8 @@ const Home = (props: DispatchProps) => {
         <Box my={4}>
           <Typography
             className={classes.headerText}
-            variant="h4"
-            component="h4"
+            variant="h2"
+            component="h2"
             gutterBottom
           >
             {langData[contextValue].header}{" "}
@@ -58,7 +60,7 @@ const Home = (props: DispatchProps) => {
 };
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-  getNotes: () => dispatch(getNotes())
+  getNotes: () => dispatch(getNotes()),
 });
 
 export default connect<DispatchProps>(null, mapDispatchToProps)(Home);

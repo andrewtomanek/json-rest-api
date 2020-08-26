@@ -32,16 +32,17 @@ const ListUnit: React.FunctionComponent<UnitProps> = ({
     root: {
       display: "flex",
       flexFlow: "row wrap",
-      padding: "1rem",
+      padding: "0.5rem",
     },
     listBox: {
       display: "flex",
       flexFlow: "row wrap",
-      backgroundColor: "var(--azure)",
+      backgroundColor: "var(--blue)",
       color: "white",
     },
     listText: {
       padding: "0rem 1rem",
+      fontSize: "1.1rem",
     },
   }));
   const classes = useStyles();
@@ -50,8 +51,8 @@ const ListUnit: React.FunctionComponent<UnitProps> = ({
     <ListItem className={classes.root}>
       <NoteText className={classes.listBox}>
         <Typography className={classes.listText} variant="h6" gutterBottom>
-          {note.id} {". "}
-        </Typography>{" "}
+          {note.id}
+        </Typography>
         <Typography className={classes.listText} variant="h6" gutterBottom>
           {note.title}
         </Typography>
