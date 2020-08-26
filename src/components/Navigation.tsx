@@ -9,10 +9,11 @@ import { LangContext, LangDispatchContext } from "../context/LangContext";
 
 const useStyles = makeStyles({
   root: {
-    display: "flex",
-    flexFlow: "row wrap",
+    display: "grid",
+    gridAutoFlow: "column",
     justifyContent: "space-evenly",
     backgroundColor: "hsla(0, 90%, 75%, 1)",
+    padding: "0.4rem",
     height: "10vh",
   },
   navText: {
@@ -26,7 +27,9 @@ const useStyles = makeStyles({
 
 export default function Navigation() {
   const contextValue = React.useContext(LangContext);
-  const dispatchValue: any = React.useContext(LangDispatchContext);
+  const dispatchValue: (languageString: string) => void = React.useContext(
+    LangDispatchContext
+  );
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
@@ -46,7 +49,6 @@ export default function Navigation() {
         value="/"
       />
       <LanguageSwitch changeLanguage={dispatchValue} language={contextValue} />
-
       <BottomNavigationAction
         className={classes.navText}
         label={langData[contextValue].createRoute}
