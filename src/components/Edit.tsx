@@ -71,11 +71,13 @@ const Edit: React.FunctionComponent<EditProps> = ({
     setNoteId(event.target.value);
   };
 
-  const handleChange = (event: any) => {
-    setNoteTitle(event.target.value);
+  const handleChange = (value: string) => {
+    setNoteTitle(value);
   };
 
-  const handleNoteContentChange = (event: any) => {
+  const handleNoteContentChange = (
+    event: React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
     setNoteContent(event.target.value);
   };
 
@@ -99,7 +101,7 @@ const Edit: React.FunctionComponent<EditProps> = ({
           className={classes.textInput}
           label={langData[contextValue].postLabel}
           value={noteTitle}
-          onChange={(e) => handleChange(e)}
+          onChange={(e) => handleChange(e.target.value as string)}
           id="noteId"
           variant="outlined"
         />

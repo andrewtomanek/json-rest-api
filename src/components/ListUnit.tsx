@@ -51,7 +51,7 @@ const ListUnit: React.FunctionComponent<UnitProps> = ({
     <ListItem className={classes.root}>
       <NoteText className={classes.listBox}>
         <Typography className={classes.listText} variant="h6" gutterBottom>
-          {note.id}
+          {note.id}.
         </Typography>
         <Typography className={classes.listText} variant="h6" gutterBottom>
           {note.title}

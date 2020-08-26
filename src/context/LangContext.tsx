@@ -5,8 +5,9 @@ interface ContextProps {
 
 const defaultLanguage: string = "cs-CZ";
 export const LangContext = React.createContext(defaultLanguage);
-export const LangDispatchContext: any = React.createContext(undefined);
-
+export const LangDispatchContext: any = React.createContext<undefined>(
+  undefined
+);
 export const LangProvider: React.FunctionComponent<ContextProps> = (props) => {
   const [language, setLanguage] = React.useState(defaultLanguage);
 
