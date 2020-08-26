@@ -1,27 +1,24 @@
 import * as React from "react";
-import LanguageSwitch from "../components/LanguageSwitch";
 interface ContextProps {
   children?: React.ReactNode;
 }
 
 const defaultLanguage: string = "cs-CZ";
 export const LangContext = React.createContext(defaultLanguage);
+export const LangDispatchContext: any = React.createContext(undefined);
 
-export const LangProvider: React.FunctionComponent<ContextProps> = props => {
+export const LangProvider: React.FunctionComponent<ContextProps> = (props) => {
   const [language, setLanguage] = React.useState(defaultLanguage);
 
   React.useEffect(() => {
     setLanguage(defaultLanguage);
   }, []);
 
-  const updateLanguage = (languageString: string) => {
-    setLanguage(languageString);
-  };
-
   return (
     <LangContext.Provider value={language}>
-      <LanguageSwitch changeLanguage={updateLanguage} language={language} />
-      {props.children}
+      <LangDispatchContext.Provider value={setLanguage}>
+        {props.children}
+      </LangDispatchContext.Provider>
     </LangContext.Provider>
   );
 };
