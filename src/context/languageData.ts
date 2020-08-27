@@ -6,7 +6,6 @@ export interface LanguageStrings {
   postContent: string;
   homeButton: string;
   createRoute: string;
-  postButton: string;
   languageVariety: string;
   editButton: string;
   deleteButton: string;
@@ -14,7 +13,7 @@ export interface LanguageStrings {
 }
 
 export const langData: {
-  [key: string]: LanguageStrings
+  [key: string]: LanguageStrings;
 } = {
   "cs-CZ": {
     header: "Poznámky",
@@ -24,11 +23,10 @@ export const langData: {
     postContent: "Text poznámky",
     homeButton: "Domů",
     createRoute: "Vytvořit",
-    postButton: "Odeslat",
     languageVariety: "Česky",
-    editButton: "Změnit",
+    editButton: "Odeslat",
     deleteButton: "Smazat",
-    detailButton: "Podrobně"
+    detailButton: "Detail",
   },
   "en-US": {
     header: "Notes",
@@ -38,11 +36,10 @@ export const langData: {
     postContent: "Note content",
     homeButton: "Home",
     createRoute: "Create",
-    postButton: "Post",
     languageVariety: "English",
-    editButton: "Edit",
+    editButton: "Send",
     deleteButton: "Delete",
-    detailButton: "Detail"
+    detailButton: "Detail",
   },
   "ru-RU": {
     header: "заметки",
@@ -52,10 +49,9 @@ export const langData: {
     postContent: "заметки Суть",
     homeButton: "дома ",
     createRoute: "творить",
-    postButton: "послать",
     languageVariety: "Pусский",
     editButton: "редактировать",
     deleteButton: "удалить",
-    detailButton: "подробно"
-  }
+    detailButton: "подробно",
+  },
 };

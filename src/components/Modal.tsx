@@ -71,8 +71,8 @@ const TransitionsModal: React.FunctionComponent<ModalProps> = ({
       <Button
         className={classes.inputButton}
         variant="contained"
-        size="large"
-        color="primary"
+        size="medium"
+        color="secondary"
         onClick={handleOpen}
       >
         {langData[contextValue].detailButton}
