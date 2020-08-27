@@ -26,6 +26,7 @@ interface DispatchProps {
 
 const CustomList = styled(List)`
   width: 100%;
+  background-color: var(--azure);
 `;
 
 const ListComponent: React.FunctionComponent<ListProps & DispatchProps> = (

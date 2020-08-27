@@ -28,8 +28,10 @@ const useStyles = makeStyles(() => ({
   headerText: {
     width: "100%",
     textAlign: "center",
-    color: "hsla(210, 90%, 30%, 1)"
-  }
+    color: "hsla(210, 90%, 30%, 1)",
+    fontSize: "1.5rem",
+    fontWeight: 700,
+  },
 }));
 
 const NoteCreation = (props: DispatchProps) => {
@@ -46,8 +48,8 @@ const NoteCreation = (props: DispatchProps) => {
         <Box my={4}>
           <Typography
             className={classes.headerText}
-            variant="h4"
-            component="h4"
+            variant="h2"
+            component="h2"
             gutterBottom
           >
             {" "}
@@ -65,7 +67,7 @@ const NoteCreation = (props: DispatchProps) => {
 };
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-  postNotes: (note: NoteObject) => dispatch(postNotes(note))
+  postNotes: (note: NoteObject) => dispatch(postNotes(note)),
 });
 
 export default connect<DispatchProps>(null, mapDispatchToProps)(NoteCreation);
