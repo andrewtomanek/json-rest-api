@@ -20,7 +20,7 @@ interface NumberInputProps {
 const IdWrap = styled.div`
   display: grid;
   grid-auto-flow: column;
-  justify-content: space-around;
+  justify-content: space-between;
   padding: 0.1rem 1rem;
   width: 90%;
 `;
@@ -33,6 +33,11 @@ const useStyles = makeStyles(() => ({
     },
     "& .MuiInputBase-root": {
       width: "10vw",
+    },
+  },
+  inputButton: {
+    "& .MuiButton-label": {
+      padding: "0 0.2rem",
     },
   },
 }));
@@ -67,11 +72,17 @@ const NumberInput: React.FunctionComponent<NumberInputProps> = ({
         onChange={(e) => handleIdChange(+e.target.value)}
         variant="outlined"
       />
-      <Button variant="contained" color="secondary" onClick={updateNote}>
+      <Button
+        className={classes.inputButton}
+        variant="contained"
+        color="secondary"
+        onClick={updateNote}
+      >
         {langData[contextValue].editButton}
       </Button>
       {note && deletePickedNote && (
         <Button
+          className={classes.inputButton}
           variant="contained"
           color="secondary"
           onClick={() => deletePickedNote(note.id)}

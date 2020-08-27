@@ -13,21 +13,12 @@ const props = {
 };
 
 describe("Render form and buttons", () => {
-  it("renders form controls text", () => {
-    const wrapper = shallow(<Edit {...props} />);
-    expect(wrapper.find("form").text()).toEqual("ZměnitSmazat");
-  });
-
-  it("renders label text", () => {
-    const wrapper = shallow(<Edit {...props} />);
-    expect(
-      wrapper
-        .find({ label: "Text poznámky" })
-    ).toHaveLength(1);
-  });
-
-  it("renders buttons", () => {
-    const wrapper = shallow(<Edit {...props} />);
-    expect(wrapper.find({ color: "secondary" })).toHaveLength(2);
+  describe("Renders input", () => {
+    it("renders form controls text", () => {
+      const wrapper = shallow(<Edit {...props} />);
+      expect(wrapper.find("form").text()).toEqual(
+        "<TextInput /> <NumberInput />"
+      );
+    });
   });
 });
