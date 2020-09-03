@@ -24,19 +24,44 @@ const props = {
   deletePickedNote,
 };
 
-describe("Renders input", () => {
+describe("Renders NumberInput component", () => {
   it("renders form controls text", () => {
     const wrapper = shallow(<NumberInput {...props} />);
     expect(wrapper.exists(".MuiButton-label"));
   });
 
-  it("renders form controls text", () => {
-    const wrapper = shallow(<NumberInput {...props} />);
-    expect(wrapper.first().text()).toEqual("OdeslatSmazat");
-  });
-
   it("renders send button", () => {
     const wrapper = shallow(<NumberInput {...props} />);
-    expect(wrapper.find({ color: "secondary" })).toHaveLength(2);
+    expect(wrapper.childAt(1).text()).toEqual("Odeslat");
+  });
+
+  it("renders delete button", () => {
+    const wrapper = shallow(<NumberInput {...props} />);
+    expect(wrapper.childAt(2).text()).toEqual("Smazat");
+  });
+
+  it("renders Id input element", () => {
+    const wrapper = shallow(<NumberInput {...props} />);
+    expect(wrapper.find({ value: 1 })).toHaveLength(1);
+  });
+
+  it("renders Id label", () => {
+    const wrapper = shallow(<NumberInput {...props} />);
+    expect(wrapper.find({ label: "Id" })).toHaveLength(1);
+  });
+
+  it("renders userId input element", () => {
+    const wrapper = shallow(<NumberInput {...props} />);
+    expect(wrapper.find({ value: 99 })).toHaveLength(1);
+  });
+
+  it("renders userId label", () => {
+    const wrapper = shallow(<NumberInput {...props} />);
+    expect(wrapper.find({ label: "userId" })).toHaveLength(1);
+  });
+
+  it("renders ListUnit component", () => {
+    const wrapper = shallow(<NumberInput {...props} />);
+    expect(wrapper).toMatchSnapshot();
   });
 });

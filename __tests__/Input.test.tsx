@@ -15,4 +15,14 @@ describe("Renders input", () => {
       "<TextInput /> <NumberInput />"
     );
   });
+
+  it("renders form controls text", () => {
+    const wrapper = shallow(<Input {...props} />);
+    expect(wrapper.find("form")).toHaveLength(1);
+  });
+
+  it("renders ListUnit component", () => {
+    const wrapper = shallow(<Input {...props} />);
+    expect(wrapper).toMatchSnapshot();
+  });
 });
