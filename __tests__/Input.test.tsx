@@ -20,9 +20,4 @@ describe("Renders input", () => {
     const wrapper = shallow(<Input {...props} />);
     expect(wrapper.find("form")).toHaveLength(1);
   });
-
-  it("renders ListUnit component", () => {
-    const wrapper = shallow(<Input {...props} />);
-    expect(wrapper).toMatchSnapshot();
-  });
 });
