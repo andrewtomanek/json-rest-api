@@ -12,15 +12,15 @@ const props = {
   deletePickedNote,
 };
 
-describe("Renders input", () => {
-  it("renders form controls text", () => {
+describe("Renders Edit", () => {
+  it("Renders form input elements", () => {
     const wrapper = shallow(<Edit {...props} />);
     expect(wrapper.find("form").text()).toEqual(
       "<TextInput /> <NumberInput />"
     );
   });
 
-  it("renders ListUnit component", () => {
+  it("Renders ListUnit component snapshot", () => {
     const wrapper = shallow(<Edit {...props} />);
     expect(wrapper).toMatchSnapshot();
   });

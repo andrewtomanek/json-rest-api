@@ -60,7 +60,7 @@ describe("Renders NumberInput component", () => {
     expect(wrapper.find({ label: "userId" })).toHaveLength(1);
   });
 
-  it("renders ListUnit component", () => {
+  it("renders ListUnit component  snapshot", () => {
     const wrapper = shallow(<NumberInput {...props} />);
     expect(wrapper).toMatchSnapshot();
   });

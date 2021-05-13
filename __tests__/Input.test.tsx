@@ -8,8 +8,8 @@ const props = {
   createNote,
 };
 
-describe("Renders input", () => {
-  it("renders form controls text", () => {
+describe("Renders Input", () => {
+  it("Renders form input elements", () => {
     const wrapper = shallow(<Input {...props} />);
     expect(wrapper.find("form").text()).toEqual(
       "<TextInput /> <NumberInput />"

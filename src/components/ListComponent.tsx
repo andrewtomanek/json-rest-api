@@ -29,9 +29,9 @@ const CustomList = styled(List)`
   background-color: var(--azure);
 `;
 
-const ListComponent: React.FunctionComponent<ListProps & DispatchProps> = (
-  props
-) => {
+export const ListComponent: React.FunctionComponent<
+  ListProps & DispatchProps
+> = (props) => {
   const pickNote = (id: number) => {
     props.getPickedNote(id);
   };

@@ -7,7 +7,7 @@ const changeLanguage = jest.fn();
 
 const props = {
   language,
-  changeLanguage
+  changeLanguage,
 };
 
 describe("<LanguageSwitch />", () => {
@@ -15,29 +15,16 @@ describe("<LanguageSwitch />", () => {
     const wrapper = shallow(<LanguageSwitch {...props} />);
     expect(wrapper.find("option")).toHaveLength(3);
   });
-  it("option value CZ", () => {
-    const wrapper = shallow(<LanguageSwitch {...props} />);
-    expect(wrapper.find({ value: "en-US" })).toHaveLength(1);
-  });
+
   it("render 3 options", () => {
     const wrapper = shallow(<LanguageSwitch {...props} />);
-    expect(
-      wrapper
-        .find("option")
-        .at(0)
-        .prop("value")
-    ).toEqual("cs-CZ");
-    expect(
-      wrapper
-        .find("option")
-        .at(1)
-        .prop("value")
-    ).toEqual("en-US");
-    expect(
-      wrapper
-        .find("option")
-        .at(2)
-        .prop("value")
-    ).toEqual("ru-RU");
+    expect(wrapper.find("option").at(0).prop("value")).toEqual("cs-CZ");
+    expect(wrapper.find("option").at(1).prop("value")).toEqual("en-US");
+    expect(wrapper.find("option").at(2).prop("value")).toEqual("ru-RU");
+  });
+
+  it("Renders ListUnit component snapshot", () => {
+    const wrapper = shallow(<LanguageSwitch {...props} />);
+    expect(wrapper).toMatchSnapshot();
   });
 });

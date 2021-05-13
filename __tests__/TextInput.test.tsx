@@ -40,7 +40,7 @@ describe("Render TextInput component", () => {
     expect(wrapper.find({ label: "Text poznámky" })).toHaveLength(1);
   });
 
-  it("renders ListUnit component", () => {
+  it("renders ListUnit component snapshot", () => {
     const wrapper = shallow(<TextInput {...props} />);
     expect(wrapper).toMatchSnapshot();
   });
