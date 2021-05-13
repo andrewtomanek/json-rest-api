@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1),
     textAlign: "center",
     color: "hsla(210, 100%, 30%, 1)",
-    fontSize: "1rem",
+    fontSize: "1.2rem",
     padding: "0.2rem",
   },
 }));

@@ -26,45 +26,44 @@ interface DispatchProps {
 
 const CustomList = styled(List)`
   width: 100%;
-  background-color: var(--azure);
+  background-color: hsla(210, 95%, 90%, 1);
 `;
 
-export const ListComponent: React.FunctionComponent<
-  ListProps & DispatchProps
-> = (props) => {
-  const pickNote = (id: number) => {
-    props.getPickedNote(id);
-  };
+export const ListComponent: React.FunctionComponent<ListProps & DispatchProps> =
+  (props) => {
+    const pickNote = (id: number) => {
+      props.getPickedNote(id);
+    };
 
-  const editNote = (note: NoteObject) => {
-    props.editPickedNote(note);
-  };
+    const editNote = (note: NoteObject) => {
+      props.editPickedNote(note);
+    };
 
-  const deletePickedNote = (id: number) => {
-    props.deleteNoteById(id);
+    const deletePickedNote = (id: number) => {
+      props.deleteNoteById(id);
+    };
+    return (
+      <CustomList>
+        {props.notes && props.notes.length > 1 ? (
+          props.notes.map((note) => {
+            return (
+              <ListUnit
+                key={note.id}
+                note={note}
+                pickNote={pickNote}
+                editNote={editNote}
+                deletePickedNote={deletePickedNote}
+              />
+            );
+          })
+        ) : (
+          <ListItem>
+            <Typography variant="h4">loading...</Typography>
+          </ListItem>
+        )}
+      </CustomList>
+    );
   };
-  return (
-    <CustomList>
-      {props.notes && props.notes.length > 1 ? (
-        props.notes.map((note) => {
-          return (
-            <ListUnit
-              key={note.id}
-              note={note}
-              pickNote={pickNote}
-              editNote={editNote}
-              deletePickedNote={deletePickedNote}
-            />
-          );
-        })
-      ) : (
-        <ListItem>
-          <Typography variant="h4">loading...</Typography>
-        </ListItem>
-      )}
-    </CustomList>
-  );
-};
 
 const mapStateToProps = (state: State) => ({
   notes: state.notes.notesArray,

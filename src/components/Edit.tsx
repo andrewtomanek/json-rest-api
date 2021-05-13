@@ -75,7 +75,7 @@ const Edit: React.FunctionComponent<EditProps> = ({
           noteContent={noteContent}
           updateNoteTitle={updateNoteTitle}
           updateNoteContent={updateNoteContent}
-        />{" "}
+        />
         <NumberInput
           note={note}
           noteId={noteId}

@@ -73,7 +73,7 @@ const Input: React.FunctionComponent<InputProps> = ({ createNote }) => {
           noteContent={noteContent}
           updateNoteTitle={updateNoteTitle}
           updateNoteContent={updateNoteContent}
-        />{" "}
+        />
         <NumberInput
           noteId={noteId}
           userId={userId}

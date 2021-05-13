@@ -48,7 +48,7 @@ const Home = (props: DispatchProps) => {
             component="h2"
             gutterBottom
           >
-            {langData[contextValue].header}{" "}
+            {langData[contextValue].header}
           </Typography>
         </Box>
         <Wrapper>

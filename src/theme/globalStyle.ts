@@ -20,7 +20,7 @@ html {
 }
 
 body {
-  background-color: hsla(210, 90%, 90%, 1);
+  background-color: hsla(210, 95%, 95%, 1);
   margin: 0;
   padding: 0;
   font-family: 'Georgia',monospace;

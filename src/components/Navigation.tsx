@@ -13,7 +13,6 @@ const useStyles = makeStyles({
     gridAutoFlow: "column",
     justifyContent: "space-evenly",
     backgroundColor: "hsla(0, 90%, 75%, 1)",
-    padding: "0.4rem",
     height: "10vh",
   },
   navText: {
@@ -27,9 +26,8 @@ const useStyles = makeStyles({
 
 export default function Navigation() {
   const contextValue = React.useContext(LangContext);
-  const dispatchValue: (languageString: string) => void = React.useContext(
-    LangDispatchContext
-  );
+  const dispatchValue: (languageString: string) => void =
+    React.useContext(LangDispatchContext);
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 

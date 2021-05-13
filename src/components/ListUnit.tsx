@@ -37,8 +37,8 @@ const ListUnit: React.FunctionComponent<UnitProps> = ({
     listBox: {
       display: "flex",
       flexFlow: "row wrap",
-      backgroundColor: "var(--blue)",
-      color: "white",
+      backgroundColor: "white",
+      color: "var(--blue)",
     },
     listText: {
       padding: "0rem 1rem",

@@ -43,7 +43,8 @@ const useStyles = makeStyles((theme) => ({
   inputButton: {
     fontWeight: 500,
     "& .MuiButton-label": {
-      color: "hsla(210, 60%, 40%, 1)",
+      color: "white",
+      backgroundColor: "hsla(210, 60%, 40%, 1)",
     },
   },
 }));

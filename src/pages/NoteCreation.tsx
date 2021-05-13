@@ -52,7 +52,6 @@ const NoteCreation = (props: DispatchProps) => {
             component="h2"
             gutterBottom
           >
-            {" "}
             {langData[contextValue].createHeader}
           </Typography>
         </Box>
