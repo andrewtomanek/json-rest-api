@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-evenly",
     margin: theme.spacing(1),
     "@media (max-width: 780px)": {
-      width: "25%",
+      width: "100%",
     },
   },
   selectWrap: {

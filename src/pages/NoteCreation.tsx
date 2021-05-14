@@ -24,6 +24,9 @@ const Wrapper = styled(Card)`
   padding: 1rem;
   box-shadow: none;
   background: none;
+  @media all and (max-width: 980px) {
+    min-height: 70vh;
+  }
 `;
 
 const useStyles = makeStyles(() => ({

@@ -23,6 +23,10 @@ const IdWrap = styled.div`
   justify-content: space-between;
   gap: 2rem;
   padding: 0.5rem 1rem;
+  @media all and (max-width: 980px) {
+    grid-auto-flow: row;
+    justify-content: center;
+  }
 `;
 
 const useStyles = makeStyles(() => ({
