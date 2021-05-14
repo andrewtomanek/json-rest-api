@@ -14,8 +14,6 @@ interface TextInputProps {
 const useStyles = makeStyles((theme) => ({
   textInput: {
     margin: theme.spacing(1),
-    width: "90%",
-    height: "80%",
   },
 }));
 

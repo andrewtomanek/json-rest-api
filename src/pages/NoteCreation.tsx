@@ -5,7 +5,6 @@ import { postNotes } from "../store/actions/notes";
 import { LangContext } from "../context/LangContext";
 import { langData } from "../context/languageData";
 import Input from "../components/Input";
-import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import Card from "@material-ui/core/Card";
@@ -19,18 +18,21 @@ interface DispatchProps {
 }
 
 const Wrapper = styled(Card)`
+  display: grid;
+  justify-content: center;
+  align-items: center;
   padding: 1rem;
-  margin: auto;
-  width: 100%;
+  box-shadow: none;
+  background: none;
 `;
 
 const useStyles = makeStyles(() => ({
   headerText: {
-    width: "100%",
     textAlign: "center",
     color: "hsla(210, 90%, 30%, 1)",
     fontSize: "1.5rem",
     fontWeight: 700,
+    marginTop: "2rem",
   },
 }));
 
@@ -44,23 +46,19 @@ const NoteCreation = (props: DispatchProps) => {
 
   return (
     <StylesProvider injectFirst>
-      <Container maxWidth="lg">
-        <Box my={4}>
-          <Typography
-            className={classes.headerText}
-            variant="h2"
-            component="h2"
-            gutterBottom
-          >
-            {langData[contextValue].createHeader}
-          </Typography>
-        </Box>
-        <Wrapper>
-          <Box>
-            <Input createNote={createNote} />
-          </Box>
-        </Wrapper>
-      </Container>
+      <Box my={4}>
+        <Typography
+          className={classes.headerText}
+          variant="h2"
+          component="h2"
+          gutterBottom
+        >
+          {langData[contextValue].createHeader}
+        </Typography>
+      </Box>
+      <Wrapper>
+        <Input createNote={createNote} />
+      </Wrapper>
     </StylesProvider>
   );
 };

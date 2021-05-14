@@ -21,8 +21,8 @@ const IdWrap = styled.div`
   display: grid;
   grid-auto-flow: column;
   justify-content: space-between;
-  padding: 0.1rem 1rem;
-  width: 90%;
+  gap: 2rem;
+  padding: 0.5rem 1rem;
 `;
 
 const useStyles = makeStyles(() => ({

@@ -11,15 +11,15 @@ interface InputProps {
 
 const InputWrap = styled(Card)`
   display: grid;
-  grid-gap: 1rem;
-  grid-auto-flow: row;
-  justify-content: stretch;
-  padding: 1rem;
-  margin: auto;
+  gap: 1rem;
+  padding: 1.5rem;
 `;
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    display: "grid",
+    justifyContent: "center",
+    alignItems: "center",
     "& .MuiTextField-root": {
       margin: theme.spacing(1),
       width: "100%",

@@ -32,9 +32,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "hsla(210, 90%, 90%, 1)",
     border: "2px solid #000",
     boxShadow: theme.shadows[5],
-    width: "60%",
-    height: "60%",
-    padding: "0.5rem",
+    minWidth: "60%",
+    padding: "2rem",
     "@media (max-width: 780px)": {
       width: "90%",
       height: "auto",
@@ -72,8 +71,8 @@ const TransitionsModal: React.FunctionComponent<ModalProps> = ({
       <Button
         className={classes.inputButton}
         variant="contained"
-        size="medium"
-        color="secondary"
+        size="small"
+        color="primary"
         onClick={handleOpen}
       >
         {langData[contextValue].detailButton}

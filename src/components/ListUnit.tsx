@@ -18,8 +18,10 @@ interface UnitProps {
 const NoteText = styled(Card)`
   display: flex;
   flex-flow: row wrap;
-  padding: 0rem;
-  width: 100%;
+  justify-content: stretch;
+  color: var(--blue);
+  padding: 1rem 0;
+  box-shadow: none;
 `;
 
 const ListUnit: React.FunctionComponent<UnitProps> = ({
@@ -32,25 +34,28 @@ const ListUnit: React.FunctionComponent<UnitProps> = ({
     root: {
       display: "flex",
       flexFlow: "row wrap",
-      padding: "0.5rem",
-    },
-    listBox: {
-      display: "flex",
-      flexFlow: "row wrap",
+      justifyContent: "flex-start",
+      alignItems: "center",
       backgroundColor: "white",
-      color: "var(--blue)",
+      padding: "0.5rem 2rem 1rem",
+      margin: "2rem 0",
     },
+    listNumber: {
+      paddingRight: "1rem",
+      fontSize: "1rem",
+      color: "var(--grey)",
+    },
+
     listText: {
-      padding: "0rem 1rem",
-      fontSize: "1.1rem",
+      fontSize: "1rem",
     },
   }));
   const classes = useStyles();
 
   return (
     <ListItem className={classes.root}>
-      <NoteText className={classes.listBox}>
-        <Typography className={classes.listText} variant="h6" gutterBottom>
+      <NoteText>
+        <Typography className={classes.listNumber} variant="h6" gutterBottom>
           {note.id}.
         </Typography>
         <Typography className={classes.listText} variant="h6" gutterBottom>

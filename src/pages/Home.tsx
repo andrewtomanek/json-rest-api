@@ -22,11 +22,11 @@ const Wrapper = styled(Card)`
 
 const useStyles = makeStyles(() => ({
   headerText: {
-    width: "100%",
     textAlign: "center",
     color: "hsla(210, 90%, 30%, 1)",
-    fontSize: "1.7rem",
-    fontWeight: 700,
+    fontSize: "1.5rem",
+    fontWeight: 900,
+    padding: "1rem",
   },
 }));
 
@@ -44,8 +44,8 @@ const Home = (props: DispatchProps) => {
         <Box my={4}>
           <Typography
             className={classes.headerText}
-            variant="h2"
-            component="h2"
+            variant="h1"
+            component="h1"
             gutterBottom
           >
             {langData[contextValue].header}

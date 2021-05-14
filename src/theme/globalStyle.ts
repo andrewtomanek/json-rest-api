@@ -5,7 +5,7 @@ const GlobalStyle = createGlobalStyle`
   --red: hsla(0, 40%, 40%, 1);
   --grey: hsla(360, 0%, 80%, 1);
   --azure: hsla(170, 80%, 90%, 1);
-  font-size: calc(1vw + 1vh + 0.4vmin);
+  font-size: calc(1vw + 1vh + 0.2vmin);
   box-sizing: border-box;
 }
 
